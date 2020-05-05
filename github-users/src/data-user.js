@@ -1,4 +1,4 @@
-const user = {
+export default {
     login: "mcelroyian",
     id: 937995,
     url: "https://api.github.com/users/mcelroyian",
