@@ -1,12 +1,11 @@
 import React from 'react'
+import Follower from './Follower'
 
-const Friends = () => {
+const Friends = props => {
 
     return (
         <div className='friends'>
-            <li>Joe</li>
-            <li>Mark</li>
-            <li>Anthony</li>
+        {props.followers.map(follower => <Follower follower={follower} key={follower.id} />)}
         </div>
     )
 }

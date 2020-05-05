@@ -3,6 +3,7 @@ import Header from './components/Header'
 import User from './components/User'
 import Friends from './components/Friends'
 import userData from './data-user'
+import dataFollowers from './data-followers'
 //import axios from 'axios'
 import './App.css';
 
@@ -11,8 +12,7 @@ class App extends React.Component {
     super()
     this.state = {
       user: {},
-      friends: [],
-      followersUrl: '',
+      followers: [],
     }
   }
 
@@ -30,7 +30,7 @@ class App extends React.Component {
     //   })
     this.setState({
       user: userData,
-      followersUrl: "https://api.github.com/users/mcelroyian/followers"
+      followers: dataFollowers,
     })
   }
 
@@ -39,7 +39,7 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <div className='body'>
-        <Friends />
+        <Friends followers={this.state.followers}/>
         <User user={this.state.user}/>
         </div>
   
