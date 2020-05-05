@@ -3,7 +3,7 @@ import Header from './components/Header'
 import User from './components/User'
 import Friends from './components/Friends'
 import userData from './data-user'
-import axios from 'axios'
+//import axios from 'axios'
 import './App.css';
 
 class App extends React.Component {
@@ -11,12 +11,27 @@ class App extends React.Component {
     super()
     this.state = {
       user: {},
-      friends: '',
+      friends: [],
+      followersUrl: '',
     }
   }
 
   componentDidMount() {
-    this.setState({user: userData})
+    // axios.get('https://api.github.com/users/mcelroyian')
+    //   .then(res => {
+    //     this.setState({
+    //       user: res.data,
+    //       followersUrl: res.data.followers_url,
+    //     })
+    //   })
+    //   .catch(err => {
+    //     console.log(err)
+    //     debugger
+    //   })
+    this.setState({
+      user: userData,
+      followersUrl: "https://api.github.com/users/mcelroyian/followers"
+    })
   }
 
   render() {
